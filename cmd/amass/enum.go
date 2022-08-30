@@ -5,6 +5,7 @@
 package main
 
 import (
+	"C"
 	"bufio"
 	"bytes"
 	"context"
@@ -162,6 +163,7 @@ func defineEnumFilepathFlags(enumFlags *flag.FlagSet, args *enumArgs) {
 	enumFlags.StringVar(&args.Filepaths.TermOut, "o", "", "Path to the text file containing terminal stdout/stderr")
 }
 
+//export runEnumCommand
 func runEnumCommand(clArgs []string) {
 	// Seed the default pseudo-random number generator
 	rand.Seed(time.Now().UTC().UnixNano())

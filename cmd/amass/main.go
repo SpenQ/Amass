@@ -22,6 +22,7 @@
 package main
 
 import (
+	"C"
 	"bytes"
 	"context"
 	"errors"

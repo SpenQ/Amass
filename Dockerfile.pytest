@@ -1,0 +1,3 @@
+FROM python:bullseye as build
+WORKDIR /go/src/github.com/OWASP/Amass
+COPY . .

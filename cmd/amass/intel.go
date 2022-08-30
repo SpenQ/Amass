@@ -5,12 +5,11 @@
 package main
 
 import (
+	"C"
 	"bytes"
 	"context"
 	"flag"
 	"fmt"
-	"io"
-	"log"
 	"math/rand"
 	"os"
 	"os/signal"
@@ -26,6 +25,10 @@ import (
 	"github.com/OWASP/Amass/v3/systems"
 	"github.com/caffix/stringset"
 	"github.com/fatih/color"
+)
+import (
+	"io"
+	"log"
 )
 
 const (
@@ -104,6 +107,7 @@ func defineIntelFilepathFlags(intelFlags *flag.FlagSet, args *intelArgs) {
 	intelFlags.StringVar(&args.Filepaths.TermOut, "o", "", "Path to the text file containing terminal stdout/stderr")
 }
 
+//export runIntelCommand
 func runIntelCommand(clArgs []string) {
 	args := intelArgs{
 		Domains:   stringset.New(),
